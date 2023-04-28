@@ -1,0 +1,15 @@
+{
+  "name": "lyzjs-utils",
+  "version": "0.0.1-alpha.3",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}
