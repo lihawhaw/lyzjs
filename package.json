@@ -8,7 +8,11 @@
   "license": "ISC",
   "scripts": {
     "publish-all": "cd packages/utils && pnpm publish && cd ../react-components && pnpm publish",
-    "up-version": "pnpm version $npm_package_config_new_version --workspaces --no-install"
+    "up-version": "pnpm version $npm_package_config_new_version --workspaces --no-install",
+    "docs:start": "npm run dev",
+    "docs:dev": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:prepare": "husky install && dumi setup"
   },
   "config": {
     "new-version": "0.0.1-alpha.5"
@@ -17,8 +21,25 @@
     "packages/*"
   ],
   "resolutions": {
-    "@types/react": "^17.0.38",
-    "react": "^17.0.2",
     "typescript": "^4.4.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "dumi": "^2.0.2",
+    "dumi-theme-chakra": "^0.0.15",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ]
   }
 }

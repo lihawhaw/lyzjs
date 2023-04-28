@@ -1,13 +1,11 @@
 {
-    "extends": "@tsconfig/node16/tsconfig.json",
-    "compilerOptions": {
-      "outDir": "dist",
-      "declaration": true,
-      "declarationDir": "dist",
-      "rootDir": "src"
-    },
-    "include": [
-      "packages/**/src"
-    ]
+  "compilerOptions": {
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "@@/*": [".dumi/tmp/*"]
+    }
   }
-  
+}
