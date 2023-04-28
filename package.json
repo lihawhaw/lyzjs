@@ -11,7 +11,7 @@
     "up-version": "pnpm version $npm_package_config_new_version --workspaces --no-install"
   },
   "config": {
-    "new-version": "0.0.1-alpha.3"
+    "new-version": "0.0.1-alpha.4"
   },
   "workspaces": [
     "packages/*"
