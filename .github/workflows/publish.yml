@@ -20,8 +20,8 @@ jobs:
           npm install -g pnpm
           pnpm install
 
-      - name: Build packages
-        run: pnpm build-all
+      # - name: Build packages
+      #   run: pnpm build-all
 
       - name: Publish packages
         run: |
