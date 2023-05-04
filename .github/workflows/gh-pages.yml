@@ -4,12 +4,15 @@ on:
   push:
     branches:
       - main-docs
+  pull_request:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -47,6 +50,7 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.9.3
+        if: ${{ github.ref == 'refs/heads/main-docs' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs-dist
